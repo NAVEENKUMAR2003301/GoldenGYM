@@ -43,7 +43,7 @@ const Header = () => {
             <rect x="6" y="24" width="4" height="16" rx="1" />
             <rect x="54" y="24" width="4" height="16" rx="1" />
           </svg>
-          <span>IRON ELITE</span>
+          <span>Golden Gym </span>
         </a>
         <nav className="hidden md:flex gap-8 text-sm font-subheading uppercase tracking-[0.15em]">
           {["Home", "Services", "Pricing", "Gallery", "Contact"].map((item) => (
@@ -81,7 +81,7 @@ const Hero = () => {
             <span className="text-white">BODY & MIND</span>
           </h1>
           <p className="mt-8 text-gray-300 text-lg sm:text-xl max-w-xl font-body">
-            Join the elite. World‑class equipment, certified coaches, and a community forged in iron.
+            Join the . World‑class equipment, certified coaches, and a community forged in Golden Gym.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
             <a
@@ -107,7 +107,7 @@ const Hero = () => {
               className="w-full object-cover max-h-[500px] transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-              <span className="text-white font-heading text-2xl tracking-widest">ELITE</span>
+              <span className="text-white font-heading text-2xl tracking-widest"></span>
             </div>
             {/* Animated border gradient */}
             <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-black to-[#D4AF37] opacity-30 blur-md animate-border-pulse -z-10" />
@@ -141,7 +141,7 @@ const Services = () => {
           OUR <span className="text-[#D4AF37]">SERVICES</span>
         </h2>
         <p className="text-center text-gray-600 text-lg max-w-2xl mx-auto mb-16 font-body">
-          Everything you need under one iron roof.
+          Everything you need under one Golden Gym roof.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesData.map((service, idx) => (
@@ -179,7 +179,7 @@ const Pricing = () => {
           MEMBERSHIP <span className="text-[#D4AF37]">PLANS</span>
         </h2>
         <p className="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-16 font-body">
-          Choose your iron path. All plans include a free trial day.
+          Choose your Golden Gym path. All plans include a free trial day.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pricingPlans.map((plan, idx) => (
@@ -242,7 +242,7 @@ const Gallery = () => {
           OUR <span className="text-[#D4AF37]">SPACE</span>
         </h2>
         <p className="text-center text-gray-600 text-lg max-w-2xl mx-auto mb-16 font-body">
-          Witness the grind. State‑of‑the‑art environment.
+          Witness the grind. State‑of‑the‑art envGolden Gymment.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((img, idx) => (
@@ -295,7 +295,7 @@ const Contact = () => {
 
           {/* WhatsApp Button */}
           <a
-            href="https://wa.me/919876543210?text=Hi%20Iron%20Elite%20Gym%2C%20I%20want%20a%20free%20trial%20session."
+            href="https://wa.me/919876543210?text=Hi%20Golden Gym%20%20Gym%2C%20I%20want%20a%20free%20trial%20session."
             target="_blank"
             rel="noopener noreferrer"
             className="relative group border-2 border-[#D4AF37] text-[#D4AF37] font-subheading font-bold px-12 py-5 rounded-full text-xl uppercase tracking-wider overflow-hidden hover:text-black transition-all shadow-[0_0_20px_#D4AF37] hover:shadow-[0_0_40px_#D4AF37] transform hover:-translate-y-1"
@@ -322,7 +322,7 @@ const Contact = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            Iron Elite Gym, Fitness Street
+            Golden Gym  Gym, Fitness Street
           </div>
         </div>
       </div>
@@ -334,7 +334,7 @@ const Contact = () => {
 const Footer = () => {
   return (
     <footer className="bg-gray-950 text-gray-500 py-10 text-center text-sm font-body border-t border-[#D4AF37]/30">
-      <p>© {new Date().getFullYear()} Iron Elite Gym. All rights reserved. | Designed with 🔥</p>
+      <p>© {new Date().getFullYear()} Golden Gym  Gym. All rights reserved. | Designed with 🔥</p>
     </footer>
   );
 };
