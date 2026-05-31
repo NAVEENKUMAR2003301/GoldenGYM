@@ -281,7 +281,7 @@ const Contact = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
           {/* Call Button */}
           <a
-            href="tel:+919876543210"
+            href="tel:+91 8095028005"
             className="relative group bg-[#D4AF37] text-black font-subheading font-bold px-12 py-5 rounded-full text-xl uppercase tracking-wider overflow-hidden shadow-[0_0_25px_#D4AF37] hover:shadow-[0_0_45px_#D4AF37] transition-all transform hover:-translate-y-1"
           >
             <span className="relative z-10 flex items-center justify-center gap-3">
@@ -295,7 +295,7 @@ const Contact = () => {
 
           {/* WhatsApp Button */}
           <a
-            href="https://wa.me/919876543210?text=Hi%20Golden Gym%20%20Gym%2C%20I%20want%20a%20free%20trial%20session."
+            href="https://wa.me/91 8095028005?text=Hi%20Golden Gym%20%20Gym%2C%20I%20want%20a%20free%20trial%20session."
             target="_blank"
             rel="noopener noreferrer"
             className="relative group border-2 border-[#D4AF37] text-[#D4AF37] font-subheading font-bold px-12 py-5 rounded-full text-xl uppercase tracking-wider overflow-hidden hover:text-black transition-all shadow-[0_0_20px_#D4AF37] hover:shadow-[0_0_40px_#D4AF37] transform hover:-translate-y-1"
@@ -312,7 +312,7 @@ const Contact = () => {
 
         {/* Phone Number Display */}
         <div className="text-3xl font-heading text-[#D4AF37] tracking-widest mb-6 drop-shadow-[0_0_10px_#D4AF37]">
-          +91 98765 43210
+           8095028005
         </div>
 
         {/* Address */}
