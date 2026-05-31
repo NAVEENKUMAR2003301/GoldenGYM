@@ -1,9 +1,5 @@
-
-
-
-
 import { useState, useEffect } from "react";
-import logo from '../public/GoldenGymLogo.jpeg'
+
 // ====================== LOADING ANIMATION (Enhanced Dumbbell) ======================
 const LoadingScreen = () => {
   return (
@@ -30,20 +26,29 @@ const LoadingScreen = () => {
   );
 };
 
-// ====================== HEADER ======================
+// ====================== HEADER (with mobile menu) ======================
 const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="bg-black/95 backdrop-blur-sm text-white sticky top-0 z-40 border-b border-[#D4AF37]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+        {/* Logo – use image directly from public folder */}
         <a href="#" className="flex items-center gap-3 text-[#D4AF37] font-heading text-3xl tracking-wider">
-          <img src={logo} alt="logo" className="h-10 w-auto" />
-          <span>Golden Gym </span>
+          <img
+            src="/GoldenGymLogo.jpeg"  // Replace with your actual file name
+            alt="Golden Gym Logo"
+            className="h-10 w-auto drop-shadow-[0_0_6px_#D4AF37]"
+          />
+          <span>Golden Gym</span>
         </a>
+
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 text-sm font-subheading uppercase tracking-[0.15em]">
           {["Home", "Services", "Pricing", "Gallery", "Contact"].map((item) => (
             <a
               key={item}
-              href={`#${ item.toLowerCase() } `}
+              href={`#${item.toLowerCase()}`}
               className="relative py-2 group transition-colors hover:text-[#D4AF37]"
             >
               {item}
@@ -51,11 +56,43 @@ const Header = () => {
             </a>
           ))}
         </nav>
-        <button className="md:hidden text-[#D4AF37] p-2">
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+
+        {/* Mobile hamburger button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-[#D4AF37] p-2 focus:outline-none"
+        >
+          {mobileMenuOpen ? (
+            // Close icon (X)
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            // Hamburger icon
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
+      </div>
+
+      {/* Mobile Menu Panel */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${mobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          }`}
+      >
+        <nav className="flex flex-col items-center bg-black/95 border-t border-[#D4AF37]/30 py-4 gap-4 text-lg font-subheading uppercase tracking-widest">
+          {["Home", "Services", "Pricing", "Gallery", "Contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-6 py-2 hover:text-[#D4AF37] transition-colors"
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );
@@ -65,7 +102,6 @@ const Header = () => {
 const Hero = () => {
   return (
     <section id="home" className="relative bg-black text-white min-h-screen flex items-center overflow-hidden">
-      {/* Background pattern */}
       <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNjAgMTAgTSAxMCAwIEwgMTAgNjAgTSAwIDIwIEwgNjAgMjAgTSAyMCAwIEwgMjAgNjAgTSAwIDMwIEwgNjAgMzAgTSAzMCAwIEwgMzAgNjAgTSAwIDQwIEwgNjAgNDAgTSA0MCAwIEwgNDAgNjAgTSAwIDUwIEwgNjAgNTAgTSA1MCAwIEwgNTAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4zIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 flex flex-col md:flex-row items-center gap-12 relative z-10">
         <div className="flex-1 text-center md:text-left">
@@ -75,7 +111,7 @@ const Hero = () => {
             <span className="text-white">BODY & MIND</span>
           </h1>
           <p className="mt-8 text-gray-300 text-lg sm:text-xl max-w-xl font-body">
-            Join the . World‑class equipment, certified coaches, and a community forged in Golden Gym.
+            Join the Golden Gym. World‑class equipment, certified coaches, and a community forged in iron.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
             <a
@@ -103,7 +139,6 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
               <span className="text-white font-heading text-2xl tracking-widest"></span>
             </div>
-            {/* Animated border gradient */}
             <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-black to-[#D4AF37] opacity-30 blur-md animate-border-pulse -z-10" />
           </div>
         </div>
@@ -125,7 +160,6 @@ const servicesData = [
 const Services = () => {
   return (
     <section id="services" className="relative bg-[#f5f5f5] py-24 overflow-hidden">
-      {/* Background hexagons */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-40 h-40 bg-[#D4AF37] rotate-45 transform" />
         <div className="absolute bottom-20 right-20 w-64 h-64 bg-black rotate-12 transform" />
@@ -147,7 +181,6 @@ const Services = () => {
               <div className="text-5xl mb-6">{service.icon}</div>
               <h3 className="text-2xl font-heading text-black mb-4">{service.title}</h3>
               <p className="text-gray-600 font-body">{service.desc}</p>
-              {/* Animated border on hover */}
               <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#D4AF37] to-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
             </div>
           ))}
@@ -173,17 +206,16 @@ const Pricing = () => {
           MEMBERSHIP <span className="text-[#D4AF37]">PLANS</span>
         </h2>
         <p className="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-16 font-body">
-          Choose your Golden Gym path. All plans include a free trial day.
+          Choose your path. All plans include a free trial day.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pricingPlans.map((plan, idx) => (
             <div
               key={idx}
               className="relative group animate-fade-in"
-              style={{ animationDelay: `${ idx * 200 } ms` }}
+              style={{ animationDelay: `${idx * 200}ms` }}
             >
-              {/* Animated border wrapper */}
-              <div className={`absolute inset - 0 rounded - 2xl bg - gradient - to - br from - [#D4AF37] via - transparent to - black p - [2px] opacity - 0 group - hover: opacity - 100 transition - all duration - 500 blur - [2px]`} />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#D4AF37] via-transparent to-black p-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 blur-[2px]" />
               <div className="relative bg-white text-black rounded-2xl p-8 shadow-xl border-t-4 border-transparent hover:border-[#D4AF37] transition-all duration-500 h-full flex flex-col">
                 {plan.popular && (
                   <span className="absolute -top-5 right-6 bg-[#D4AF37] text-black text-xs font-bold px-4 py-1 rounded-full shadow-lg animate-pulse">
@@ -219,12 +251,12 @@ const Pricing = () => {
 
 // ====================== GALLERY SECTION ======================
 const galleryImages = [
-  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600", // Interior
-  "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600", // Equipment
-  "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600", // Dumbbells
-  "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600", // Cardio
-  "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600", // Weight rack
-  "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600", // Yoga area
+  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600",
+  "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600",
+  "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600",
+  "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600",
+  "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600",
+  "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600",
 ];
 
 const Gallery = () => {
@@ -236,16 +268,15 @@ const Gallery = () => {
           OUR <span className="text-[#D4AF37]">SPACE</span>
         </h2>
         <p className="text-center text-gray-600 text-lg max-w-2xl mx-auto mb-16 font-body">
-          Witness the grind. State‑of‑the‑art envGolden Gymment.
+          Witness the grind. State‑of‑the‑art environment.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((img, idx) => (
             <div key={idx} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <img src={img} alt={`Gallery ${ idx + 1 } `} className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={img} alt={`Gallery ${idx + 1}`} className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                 <span className="text-white font-heading text-xl tracking-widest uppercase">View</span>
               </div>
-              {/* Animated golden frame */}
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D4AF37] transition-all duration-500 rounded-xl" />
             </div>
           ))}
@@ -255,12 +286,13 @@ const Gallery = () => {
   );
 };
 
-// ====================== CONTACT / CTA SECTION (Enhanced) ======================
 // ====================== CONTACT SECTION (Call & WhatsApp Only) ======================
 const Contact = () => {
+  const phoneNumber = "918095028005"; // WhatsApp format: country code + number, no spaces
+  const displayNumber = "8095028005"; // For display
+
   return (
     <section id="contact" className="relative bg-black text-white py-24 overflow-hidden">
-      {/* Background gym image overlay */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200')] bg-cover bg-center opacity-20 blur-sm" />
       <div className="absolute inset-0 bg-black/70" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
@@ -271,11 +303,10 @@ const Contact = () => {
           Call or WhatsApp us now – your first trial is free.
         </p>
 
-        {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
           {/* Call Button */}
           <a
-            href="tel:+91 8095028005"
+            href={`tel:+91${displayNumber}`}
             className="relative group bg-[#D4AF37] text-black font-subheading font-bold px-12 py-5 rounded-full text-xl uppercase tracking-wider overflow-hidden shadow-[0_0_25px_#D4AF37] hover:shadow-[0_0_45px_#D4AF37] transition-all transform hover:-translate-y-1"
           >
             <span className="relative z-10 flex items-center justify-center gap-3">
@@ -289,7 +320,7 @@ const Contact = () => {
 
           {/* WhatsApp Button */}
           <a
-            href="https://wa.me/91 8095028005?text=Hi%20Golden Gym%20%20Gym%2C%20I%20want%20a%20free%20trial%20session."
+            href={`https://wa.me/${phoneNumber}?text=Hi%20Golden%20Gym%2C%20I%20want%20a%20free%20trial%20session.`}
             target="_blank"
             rel="noopener noreferrer"
             className="relative group border-2 border-[#D4AF37] text-[#D4AF37] font-subheading font-bold px-12 py-5 rounded-full text-xl uppercase tracking-wider overflow-hidden hover:text-black transition-all shadow-[0_0_20px_#D4AF37] hover:shadow-[0_0_40px_#D4AF37] transform hover:-translate-y-1"
@@ -304,19 +335,17 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* Phone Number Display */}
         <div className="text-3xl font-heading text-[#D4AF37] tracking-widest mb-6 drop-shadow-[0_0_10px_#D4AF37]">
-           8095028005
+          +91 {displayNumber}
         </div>
 
-        {/* Address */}
         <div className="flex justify-center gap-6 text-gray-400 font-body text-lg">
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            Golden Gym  Gym, Fitness Street
+            Golden Gym, Fitness Street
           </div>
         </div>
       </div>
@@ -328,7 +357,7 @@ const Contact = () => {
 const Footer = () => {
   return (
     <footer className="bg-gray-950 text-gray-500 py-10 text-center text-sm font-body border-t border-[#D4AF37]/30">
-      <p>© {new Date().getFullYear()} Golden Gym  Gym. All rights reserved. | Designed with 🔥</p>
+      <p>© {new Date().getFullYear()} Golden Gym. All rights reserved. | Designed with 🔥</p>
     </footer>
   );
 };
@@ -346,37 +375,40 @@ export default function App() {
 
   return (
     <>
-      {/* Font import and animations */}
       <style>{`
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
-        .font - heading { font - family: 'Bebas Neue', sans - serif; }
-        .font - subheading { font - family: 'Oswald', sans - serif; }
-        .font - body { font - family: 'Poppins', sans - serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
+        .font-heading { font-family: 'Bebas Neue', sans-serif; }
+        .font-subheading { font-family: 'Oswald', sans-serif; }
+        .font-body { font-family: 'Poppins', sans-serif; }
 
-@keyframes loading - bar {
-  0 % { width: 0 %; }
-  50 % { width: 70 %; }
-  100 % { width: 100 %; }
-}
-        .animate - loading - bar {
-  animation: loading - bar 2s ease -in -out;
-}
-@keyframes fadeInUp {
+        @keyframes loading-bar {
+          0% { width: 0%; }
+          50% { width: 70%; }
+          100% { width: 100%; }
+        }
+        .animate-loading-bar {
+          animation: loading-bar 2s ease-in-out;
+        }
+        @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
-}
-        .animate - fade -in {
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
-@keyframes border - pulse {
-  0 %, 100 % { opacity: 0.3; }
-  50 % { opacity: 0.6; }
-}
-        .animate - border - pulse {
-  animation: border - pulse 3s infinite;
-}
-`}</style>
+        }
+        .animate-fade-in {
+          animation: fadeInUp 0.8s ease forwards;
+          opacity: 0;
+        }
+        @keyframes border-pulse {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 0.6; }
+        }
+        .animate-border-pulse {
+          animation: border-pulse 3s infinite;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
 
       <div className="font-sans">
         <Header />
