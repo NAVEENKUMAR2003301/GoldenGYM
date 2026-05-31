@@ -3,7 +3,7 @@
 
 
 import { useState, useEffect } from "react";
-
+import logo from '../public/GoldenGymLogo.jpeg'
 // ====================== LOADING ANIMATION (Enhanced Dumbbell) ======================
 const LoadingScreen = () => {
   return (
@@ -36,13 +36,7 @@ const Header = () => {
     <header className="bg-black/95 backdrop-blur-sm text-white sticky top-0 z-40 border-b border-[#D4AF37]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 text-[#D4AF37] font-heading text-3xl tracking-wider">
-          <svg className="w-10 h-10 drop-shadow-[0_0_6px_#D4AF37]" viewBox="0 0 64 64" fill="currentColor">
-            <rect x="8" y="26" width="12" height="12" rx="2" />
-            <rect x="44" y="26" width="12" height="12" rx="2" />
-            <rect x="20" y="29" width="24" height="6" rx="2" />
-            <rect x="6" y="24" width="4" height="16" rx="1" />
-            <rect x="54" y="24" width="4" height="16" rx="1" />
-          </svg>
+          <img src={logo} alt="logo" className="h-10 w-auto" />
           <span>Golden Gym </span>
         </a>
         <nav className="hidden md:flex gap-8 text-sm font-subheading uppercase tracking-[0.15em]">
